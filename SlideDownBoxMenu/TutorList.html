@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>List of Tutors</h2>
+  <p>Search for a specific tutor or course:</p>  
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>TutorName</th>
+        <th>Course</th>
+        <th>Data and Time</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      <tr>
+        <td>Sara</td>
+        <td>MATH095,CHEM211</td>
+        <td>UTH-11am, MW-1pm/2pm</td>
+      </tr>
+      <tr>
+        <td>Zheng</td>
+        <td>CSCI112,CSCI113</td>
+        <td>UTH-11am/12pm, MW-3pm/4pm</td>
+      </tr>
+      <tr>
+        <td>Shouq</td>
+        <td>MATH095</td>
+        <td>UTH-1pm, MW-10am</td>
+      </tr>
+      <tr>
+        <td>Hadi</td>
+        <td>CSCI112</td>
+        <td>UTH-10am, MW-11am/3pm</td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="tutor.html"><button class="btn-L">Schedule with Tutor!</button></a>
+  
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+</body>
+</html>
